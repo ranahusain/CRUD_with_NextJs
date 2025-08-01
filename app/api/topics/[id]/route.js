@@ -4,7 +4,7 @@ import Topic from "@/models/topic";
 
 export async function DELETE(_, { params }) {
   await connectMongoDB();
-  const { id } = params;
+  const { id } = await params;
   try {
     const deletedTopic = await Topic.findByIdAndDelete(id);
 
@@ -19,7 +19,7 @@ export async function DELETE(_, { params }) {
 }
 
 export async function PUT(request, { params }) {
-  const { id } = params;
+  const { id } = await params;
   const { newTitle: title, newDescription: description } = await request.json();
   await connectMongoDB();
   const updated = await Topic.findByIdAndUpdate(id, { title, description });
@@ -36,7 +36,7 @@ export async function PUT(request, { params }) {
 
 //get a spcific task by id
 export async function GET(_, { params }) {
-  const { id } = params;
+  const { id } = await params;
   await connectMongoDB();
   const topic = await Topic.findOne({ _id: id });
 

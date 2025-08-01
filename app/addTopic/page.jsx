@@ -29,7 +29,9 @@ const page = () => {
       } else {
         throw new Error("Failed to create a topic");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

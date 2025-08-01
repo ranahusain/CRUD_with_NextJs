@@ -32,7 +32,7 @@ const TopicsList = async () => {
             <div>{topic.description}</div>
           </div>
           <div className="flex gap-2">
-            <RemoveBtn />
+            <RemoveBtn id={topic._id} />
             <Link href={`/editTopic/${topic._id}`}>
               <HiPencilAlt size={24} />
             </Link>
