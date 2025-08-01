@@ -1,6 +1,6 @@
 import React from "react";
 
-const page = () => {
+const EditTopicForm = () => {
   return (
     <>
       <form className="flex flex-col gap-3">
@@ -15,11 +15,11 @@ const page = () => {
           placeholder="Topic Description"
         />
         <button className="bg-green-600 text-white py-3 px-6 w-fit" font-bold>
-          Add Topic
+          Update Topic
         </button>
       </form>
     </>
   );
 };
 
-export default page;
+export default EditTopicForm;
