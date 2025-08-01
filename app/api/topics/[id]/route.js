@@ -33,3 +33,16 @@ export async function PUT(request, { params }) {
     { status: 200 }
   );
 }
+
+//get a spcific task by id
+export async function GET(_, { params }) {
+  const { id } = params;
+  await connectMongoDB();
+  const topic = await Topic.findOne({ _id: id });
+
+  if (!topic) {
+    return NextResponse.json({ error: "Topic not found" }, { status: 404 });
+  }
+
+  return NextResponse.json({ message: "Topic", topic: topic }, { status: 200 });
+}
